@@ -638,6 +638,7 @@ define view ProductsConsumption as
         partner.address.country    as![Supplier_Country]
     };
 
+
 /*
 define view ProductValuesView as
     select from ProductView {

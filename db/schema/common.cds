@@ -185,6 +185,7 @@ define view iso_us_states_and_territories as
   where
     country = 'US';
 
+
 define view countries as
   select from sap.common.Countries {
     @UI.lineItem       : [{importance : Importance.High}]
