@@ -55,3 +55,12 @@ resources:
    properties:
      hdi-service-name: ${service-name}
 
+# ------------------------------------------------------------
+ - name: cross-container-service-1
+# ------------------------------------------------------------  
+   type: org.cloudfoundry.existing-service
+   parameters:
+     service-name: CROSS_SCHEMA_SFLIGHT
+   properties:
+     the-service-name: '${service-name}'
+
