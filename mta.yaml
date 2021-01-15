@@ -62,4 +62,4 @@ resources:
    parameters:
      service-name: CROSS_SCHEMA_SFLIGHT
    properties:
-     ServiceName_1: '${service-name}'
+     ServiceName_1: ${service-name}
