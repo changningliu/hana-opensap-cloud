@@ -8,4 +8,5 @@ using from './schema/SFLIGHT';
 entity Base {
   key ID : Integer;
   TEST : String;
+  TEST1 : String;
 }
