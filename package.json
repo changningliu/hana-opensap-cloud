@@ -14,9 +14,9 @@
         "sqlite3": "^5"
     },
     "scripts": {
-        "start": "cds run",
+        "start": "npm cds run",
         "env": "cp ./default-env.json ./db/default-env.json && cp ./default-env.json ./srv/default-env.json",
-        "build": "cds build/all --clean"
+        "build": "npm cds build/all --clean"
     },
     "cds": {
         "build": {
