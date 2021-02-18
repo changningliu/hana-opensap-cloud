@@ -1,0 +1,26 @@
+VIEW localized_POService_Employees AS SELECT
+  Empl_0.ID,
+  Empl_0.validFrom,
+  Empl_0.validTo,
+  Empl_0.nameFirst,
+  Empl_0.nameMiddle,
+  Empl_0.nameLast,
+  Empl_0.nameInitials,
+  Empl_0.sex,
+  Empl_0.language,
+  Empl_0.phoneNumber,
+  Empl_0.email,
+  Empl_0.loginName,
+  Empl_0.salaryAmount,
+  Empl_0.accountNumber,
+  Empl_0.bankId,
+  Empl_0.bankName,
+  Empl_0.employeePicUrl,
+  Empl_0.address_ID,
+  Empl_0.currency_code
+FROM localized_opensap_MD_Employees AS Empl_0
+WHERE (Empl_0.validFrom < SESSION_CONTEXT('VALID-TO') AND Empl_0.validTo > SESSION_CONTEXT('VALID-FROM'))
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_POService_Addresses AS address ON (address.ID = address_ID),
+  MANY TO ONE JOIN localized_POService_Currencies AS currency ON (currency.code = currency_code)
+)

@@ -1,0 +1,14 @@
+VIEW localized_opensap_MD_BuyerView AS SELECT
+  BusinessPartners_0.ID AS Id,
+  BusinessPartners_0.email AS EmailAddress,
+  BusinessPartners_0.companyName AS CompanyName,
+  address_1.city AS City,
+  address_1.postalCode AS PostalCode,
+  address_1.street AS Street,
+  address_1.building AS Building,
+  country_2.code AS Country,
+  country_2.name AS CountryName,
+  address_1.region AS Region,
+  createdByEmployee_3.loginName AS CreatedBy
+FROM (((localized_opensap_MD_BusinessPartners AS BusinessPartners_0 LEFT JOIN localized_opensap_MD_Addresses AS address_1 ON (BusinessPartners_0.address_ID = address_1.ID)) LEFT JOIN localized_sap_common_Countries AS country_2 ON (address_1.country_code = country_2.code)) LEFT JOIN localized_opensap_MD_Employees AS createdByEmployee_3 ON createdByEmployee_3.email = BusinessPartners_0.createdBy)
+WHERE BusinessPartners_0.partnerRole = 1

@@ -1,0 +1,9 @@
+COLUMN TABLE sap_common_countries_Regions (
+  country NVARCHAR(3) NOT NULL,
+  sub_code NVARCHAR(5) NOT NULL,
+  name NVARCHAR(80),
+  type NVARCHAR(80),
+  PRIMARY KEY(country, sub_code)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_common_Countries AS toCountries ON (toCountries.code = country)
+)

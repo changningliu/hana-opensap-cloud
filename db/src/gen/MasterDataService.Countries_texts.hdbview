@@ -1,0 +1,6 @@
+VIEW MasterDataService_Countries_texts AS SELECT
+  Countries_texts_0.locale,
+  Countries_texts_0.name,
+  Countries_texts_0.descr,
+  Countries_texts_0.code
+FROM sap_common_Countries_texts AS Countries_texts_0

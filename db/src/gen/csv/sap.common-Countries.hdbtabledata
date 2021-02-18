@@ -1,0 +1,43 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "SAP_COMMON_COUNTRIES",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "sap.common-Countries.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "NAME",
+          "CODE",
+          "ALPHA3",
+          "CODE1",
+          "ISO",
+          "REGION",
+          "SUB_REGION",
+          "REGION_CODE",
+          "SUB_REGION_CODE",
+          "DESCR"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "NAME": "name",
+        "CODE": "code",
+        "ALPHA3": "ALPHA3",
+        "CODE1": "CODE1",
+        "ISO": "ISO",
+        "REGION": "REGION",
+        "SUB_REGION": "SUB_REGION",
+        "REGION_CODE": "REGION_CODE",
+        "SUB_REGION_CODE": "SUB_REGION_CODE",
+        "DESCR": "descr"
+      }
+    }
+  ]
+}

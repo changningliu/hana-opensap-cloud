@@ -1,0 +1,4 @@
+VIEW MasterDataService_partnerRoles AS SELECT
+  partRoles_0.partnerRole,
+  partRoles_0.PARTNERDESC
+FROM opensap_MD_partnerRoles AS partRoles_0

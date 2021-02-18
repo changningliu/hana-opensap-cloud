@@ -1,0 +1,25 @@
+VIEW localized_opensap_MD_Employees AS SELECT
+  L_0.ID,
+  L_0.validFrom,
+  L_0.validTo,
+  L_0.nameFirst,
+  L_0.nameMiddle,
+  L_0.nameLast,
+  L_0.nameInitials,
+  L_0.sex,
+  L_0.language,
+  L_0.phoneNumber,
+  L_0.email,
+  L_0.loginName,
+  L_0.salaryAmount,
+  L_0.accountNumber,
+  L_0.bankId,
+  L_0.bankName,
+  L_0.employeePicUrl,
+  L_0.address_ID,
+  L_0.currency_code
+FROM opensap_MD_Employees AS L_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_opensap_MD_Addresses AS address ON (address.ID = address_ID),
+  MANY TO ONE JOIN localized_sap_common_Currencies AS currency ON (currency.code = currency_code)
+)

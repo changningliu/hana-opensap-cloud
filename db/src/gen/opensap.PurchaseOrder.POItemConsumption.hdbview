@@ -1,0 +1,13 @@
+VIEW opensap_PurchaseOrder_POItemConsumption AS SELECT
+  Items_0.poHeader_ID AS ID,
+  product_1.productId,
+  product_1.name,
+  Items_0.grossAmount,
+  Items_0.netAmount,
+  Items_0.taxAmount,
+  Items_0.currency_code AS code,
+  Items_0.quantity,
+  Items_0.quantityUnit,
+  Items_0.deliveryDate,
+  product_1.category
+FROM (opensap_PurchaseOrder_Items AS Items_0 LEFT JOIN opensap_MD_Products AS product_1 ON (Items_0.product_productId = product_1.productId))

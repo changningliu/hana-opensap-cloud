@@ -1,0 +1,33 @@
+COLUMN TABLE opensap_MD_Products (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  quantity DECIMAL(13, 3),
+  quantityUnit NVARCHAR(3),
+  productId NVARCHAR(10) NOT NULL,
+  typeCode NVARCHAR(2),
+  category NVARCHAR(40),
+  name NVARCHAR(5000),
+  desc NVARCHAR(5000),
+  weightMeasure DECIMAL(13, 3),
+  weightUnit NVARCHAR(3),
+  price DECIMAL(15, 2),
+  width DECIMAL(13, 3),
+  depth DECIMAL(13, 3),
+  height DECIMAL(13, 3),
+  dimensionUnit NVARCHAR(3),
+  imageUrl NVARCHAR(5000),
+  partner_ID NVARCHAR(36),
+  currency_code NVARCHAR(3),
+  image_product_productId NVARCHAR(10),
+  PRIMARY KEY(productId)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN opensap_MD_BusinessPartners AS partner ON (partner.ID = partner_ID),
+  MANY TO ONE JOIN sap_common_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO ONE JOIN opensap_MD_Employees AS createdByEmployee ON (createdByEmployee.email = createdBy),
+  MANY TO ONE JOIN opensap_MD_Employees AS modifiedByEmployee ON (modifiedByEmployee.email = modifiedBy),
+  MANY TO ONE JOIN opensap_MD_ProductImages AS image ON (image.product_productId = image_product_productId),
+  MANY TO MANY JOIN opensap_MD_Products_texts AS texts ON (texts.productId = productId),
+  MANY TO ONE JOIN opensap_MD_Products_texts AS localized ON (localized.productId = productId AND localized.locale = SESSION_CONTEXT('LOCALE'))
+)

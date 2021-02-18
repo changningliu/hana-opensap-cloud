@@ -1,0 +1,4 @@
+VIEW opensap_MD_BPOrdersView AS SELECT
+  BPView_0.ID,
+  ORDERS_1.ID AS orderId
+FROM (opensap_MD_BPView AS BPView_0 LEFT JOIN opensap_PurchaseOrder_Headers AS ORDERS_1 ON ((ORDERS_1.partner_ID = BPView_0.ID) AND (ORDERS_1.lifecycleStatus = 'N')))

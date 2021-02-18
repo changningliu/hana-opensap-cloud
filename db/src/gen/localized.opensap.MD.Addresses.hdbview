@@ -1,0 +1,17 @@
+VIEW localized_opensap_MD_Addresses AS SELECT
+  L_0.ID,
+  L_0.validFrom,
+  L_0.validTo,
+  L_0.city,
+  L_0.postalCode,
+  L_0.street,
+  L_0.building,
+  L_0.region,
+  L_0.addressType,
+  L_0.latitude,
+  L_0.longitude,
+  L_0.country_code
+FROM opensap_MD_Addresses AS L_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_sap_common_Countries AS country ON (country.code = country_code)
+)

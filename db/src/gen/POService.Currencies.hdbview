@@ -1,0 +1,13 @@
+VIEW POService_Currencies AS SELECT
+  Currencies_0.name,
+  Currencies_0.descr,
+  Currencies_0.code,
+  Currencies_0.symbol,
+  Currencies_0.numcode,
+  Currencies_0.exponent,
+  Currencies_0.minor
+FROM sap_common_Currencies AS Currencies_0
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN POService_Currencies_texts AS texts ON (texts.code = code),
+  MANY TO ONE JOIN POService_Currencies_texts AS localized ON (localized.code = code AND localized.locale = SESSION_CONTEXT('LOCALE'))
+)

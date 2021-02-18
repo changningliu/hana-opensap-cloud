@@ -1,0 +1,6 @@
+VIEW opensap_MD_partnerRoles AS SELECT
+  BusinessPartners_0.partnerRole,
+  CAST(CASE WHEN BusinessPartners_0.partnerRole = 1 THEN 'Buyer' WHEN BusinessPartners_0.partnerRole = 2 THEN 'Supplier' END AS NVARCHAR(5000)) PARTNERDESC
+FROM opensap_MD_BusinessPartners AS BusinessPartners_0
+GROUP BY BusinessPartners_0.partnerRole
+ORDER BY partnerRole

@@ -1,0 +1,3 @@
+VIEW POService_productCategoryVH AS SELECT
+  prodCat_0.Product_Category
+FROM opensap_MD_productCategoryVH AS prodCat_0

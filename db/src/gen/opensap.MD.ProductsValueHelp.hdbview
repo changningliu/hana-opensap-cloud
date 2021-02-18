@@ -1,0 +1,4 @@
+VIEW opensap_MD_ProductsValueHelp AS SELECT
+  Products_0.productId,
+  Products_0.name
+FROM opensap_MD_Products AS Products_0

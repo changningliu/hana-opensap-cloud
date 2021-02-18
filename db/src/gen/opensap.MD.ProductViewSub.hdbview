@@ -1,0 +1,7 @@
+VIEW opensap_MD_ProductViewSub AS SELECT
+  prod_0.productId AS Product_Id,
+  (SELECT
+      SUM(a_1.grossAmount) AS SUM
+    FROM opensap_PurchaseOrder_Items AS a_1
+    WHERE a_1.product_productId = prod_0.productId) AS PO_SUM
+FROM opensap_MD_Products AS prod_0

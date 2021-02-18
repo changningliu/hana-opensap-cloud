@@ -1,0 +1,33 @@
+VIEW localized_opensap_MD_Products AS SELECT
+  L_0.createdAt,
+  L_0.createdBy,
+  L_0.modifiedAt,
+  L_0.modifiedBy,
+  L_0.quantity,
+  L_0.quantityUnit,
+  L_0.productId,
+  L_0.typeCode,
+  L_0.category,
+  COALESCE(localized_1.name, L_0.name) AS name,
+  COALESCE(localized_1.desc, L_0.desc) AS desc,
+  L_0.weightMeasure,
+  L_0.weightUnit,
+  L_0.price,
+  L_0.width,
+  L_0.depth,
+  L_0.height,
+  L_0.dimensionUnit,
+  L_0.imageUrl,
+  L_0.partner_ID,
+  L_0.currency_code,
+  L_0.image_product_productId
+FROM (opensap_MD_Products AS L_0 LEFT JOIN opensap_MD_Products_texts AS localized_1 ON localized_1.productId = L_0.productId AND localized_1.locale = SESSION_CONTEXT('LOCALE'))
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_opensap_MD_BusinessPartners AS partner ON (partner.ID = partner_ID),
+  MANY TO ONE JOIN localized_sap_common_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO ONE JOIN localized_opensap_MD_Employees AS createdByEmployee ON (createdByEmployee.email = createdBy),
+  MANY TO ONE JOIN localized_opensap_MD_Employees AS modifiedByEmployee ON (modifiedByEmployee.email = modifiedBy),
+  MANY TO ONE JOIN localized_opensap_MD_ProductImages AS image ON (image.product_productId = image_product_productId),
+  MANY TO MANY JOIN opensap_MD_Products_texts AS texts ON (texts.productId = productId),
+  MANY TO ONE JOIN opensap_MD_Products_texts AS localized ON (localized.productId = productId AND localized.locale = SESSION_CONTEXT('LOCALE'))
+)

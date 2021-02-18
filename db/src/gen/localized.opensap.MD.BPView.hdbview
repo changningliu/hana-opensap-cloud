@@ -1,0 +1,6 @@
+VIEW localized_opensap_MD_BPView AS SELECT
+  BusinessPartners_0.ID
+FROM localized_opensap_MD_BusinessPartners AS BusinessPartners_0
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN localized_opensap_PurchaseOrder_Headers AS ORDERS ON (ORDERS.partner_ID = ID)
+)

@@ -1,0 +1,9 @@
+VIEW MasterDataService_Regions AS SELECT
+  Regions_0.country,
+  Regions_0.sub_code,
+  Regions_0.name,
+  Regions_0.type
+FROM sap_common_countries_Regions AS Regions_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN MasterDataService_Countries AS toCountries ON (toCountries.code = country)
+)

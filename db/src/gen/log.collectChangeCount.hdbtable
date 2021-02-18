@@ -1,0 +1,4 @@
+COLUMN TABLE log_collectChangeCount (
+  no_changes INTEGER,
+  employee NVARCHAR(5000)
+)

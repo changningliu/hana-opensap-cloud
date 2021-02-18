@@ -1,0 +1,49 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "OPENSAP_MD_BUSINESSPARTNERS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "opensap.MD-BusinessPartners.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "ID",
+          "PARTNERROLE",
+          "EMAIL",
+          "PHONENUMBER",
+          "WEBADDRESS",
+          "ADDRESS_ID",
+          "COMPANYNAME",
+          "LEGALFORM",
+          "CREATEDBY",
+          "CREATEDAT",
+          "MODIFIEDBY",
+          "MODIFIEDAT",
+          "CURRENCY_CODE"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "ID": "ID",
+        "PARTNERROLE": "partnerRole",
+        "EMAIL": "email",
+        "PHONENUMBER": "phoneNumber",
+        "WEBADDRESS": "webAddress",
+        "ADDRESS_ID": "address_ID",
+        "COMPANYNAME": "companyName",
+        "LEGALFORM": "legalForm",
+        "CREATEDBY": "createdBy",
+        "CREATEDAT": "createdAt",
+        "MODIFIEDBY": "modifiedBy",
+        "MODIFIEDAT": "modifiedAt",
+        "CURRENCY_CODE": "currency_code"
+      }
+    }
+  ]
+}

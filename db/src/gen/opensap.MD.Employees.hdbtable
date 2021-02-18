@@ -1,0 +1,25 @@
+COLUMN TABLE opensap_MD_Employees (
+  ID NVARCHAR(36) NOT NULL,
+  validFrom TIMESTAMP NOT NULL,
+  validTo TIMESTAMP,
+  nameFirst NVARCHAR(40),
+  nameMiddle NVARCHAR(40),
+  nameLast NVARCHAR(40),
+  nameInitials NVARCHAR(10),
+  sex NVARCHAR(1),
+  language NVARCHAR(1),
+  phoneNumber NVARCHAR(30),
+  email NVARCHAR(255),
+  loginName NVARCHAR(12),
+  salaryAmount DECIMAL(15, 2),
+  accountNumber NVARCHAR(10),
+  bankId NVARCHAR(10),
+  bankName NVARCHAR(255),
+  employeePicUrl NVARCHAR(255),
+  address_ID NVARCHAR(36),
+  currency_code NVARCHAR(3),
+  PRIMARY KEY(ID, validFrom)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN opensap_MD_Addresses AS address ON (address.ID = address_ID),
+  MANY TO ONE JOIN sap_common_Currencies AS currency ON (currency.code = currency_code)
+)

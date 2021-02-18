@@ -1,0 +1,25 @@
+VIEW localized_opensap_PurchaseOrder_Headers AS SELECT
+  L_0.createdAt,
+  L_0.createdBy,
+  L_0.modifiedAt,
+  L_0.modifiedBy,
+  L_0.ID,
+  L_0.grossAmount,
+  L_0.netAmount,
+  L_0.taxAmount,
+  L_0.noteId,
+  L_0.lifecycleStatus,
+  L_0.approvalStatus,
+  L_0.confirmStatus,
+  L_0.orderingStatus,
+  L_0.invoicingStatus,
+  L_0.currency_code,
+  L_0.partner_ID
+FROM opensap_PurchaseOrder_Headers AS L_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_sap_common_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO MANY JOIN localized_opensap_PurchaseOrder_Items AS item ON (item.poHeader_ID = ID),
+  MANY TO ONE JOIN localized_opensap_MD_BusinessPartners AS partner ON (partner.ID = partner_ID),
+  MANY TO ONE JOIN localized_opensap_MD_Employees AS createdByEmployee ON (createdByEmployee.email = createdBy),
+  MANY TO ONE JOIN localized_opensap_MD_Employees AS modifiedByEmployee ON (modifiedByEmployee.email = modifiedBy)
+)

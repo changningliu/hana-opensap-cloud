@@ -1,0 +1,19 @@
+VIEW opensap_PurchaseOrder_POHeaderConsumption AS SELECT
+  Headers_0.ID,
+  partner_1.ID AS partnerID,
+  partner_1.companyName,
+  address_2.city,
+  Headers_0.modifiedAt,
+  modifiedByEmployee_3.loginName AS modifiedBy,
+  Headers_0.createdAt,
+  createdByEmployee_4.loginName AS createdBy,
+  Headers_0.grossAmount,
+  Headers_0.netAmount,
+  Headers_0.taxAmount,
+  Headers_0.currency_code AS code,
+  Headers_0.noteId,
+  Headers_0.approvalStatus,
+  Headers_0.confirmStatus,
+  Headers_0.lifecycleStatus,
+  Headers_0.orderingStatus
+FROM ((((opensap_PurchaseOrder_Headers AS Headers_0 LEFT JOIN opensap_MD_BusinessPartners AS partner_1 ON (Headers_0.partner_ID = partner_1.ID)) LEFT JOIN opensap_MD_Addresses AS address_2 ON (partner_1.address_ID = address_2.ID)) LEFT JOIN opensap_MD_Employees AS modifiedByEmployee_3 ON modifiedByEmployee_3.email = Headers_0.modifiedBy) LEFT JOIN opensap_MD_Employees AS createdByEmployee_4 ON createdByEmployee_4.email = Headers_0.createdBy)

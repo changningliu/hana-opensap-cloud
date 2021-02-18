@@ -1,0 +1,8 @@
+VIEW localized_MasterDataService_ProductImages AS SELECT
+  ProdImages_0.image,
+  ProdImages_0.imageType,
+  ProdImages_0.product_productId
+FROM localized_opensap_MD_ProductImages AS ProdImages_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_MasterDataService_Products AS product ON (product.productId = product_productId)
+)

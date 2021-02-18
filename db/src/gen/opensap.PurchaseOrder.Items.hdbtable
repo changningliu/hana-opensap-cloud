@@ -1,0 +1,18 @@
+COLUMN TABLE opensap_PurchaseOrder_Items (
+  ID NVARCHAR(36) NOT NULL,
+  grossAmount DECIMAL(15, 2),
+  netAmount DECIMAL(15, 2),
+  taxAmount DECIMAL(15, 2),
+  quantity DECIMAL(13, 3),
+  quantityUnit NVARCHAR(3),
+  noteId NVARCHAR(10) NULL,
+  deliveryDate SECONDDATE,
+  currency_code NVARCHAR(3),
+  poHeader_ID NVARCHAR(36),
+  product_productId NVARCHAR(10),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_common_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO ONE JOIN opensap_PurchaseOrder_Headers AS poHeader ON (poHeader.ID = poHeader_ID),
+  MANY TO ONE JOIN opensap_MD_Products AS product ON (product.productId = product_productId)
+)

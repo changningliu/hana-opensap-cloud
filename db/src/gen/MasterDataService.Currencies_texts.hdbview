@@ -1,0 +1,6 @@
+VIEW MasterDataService_Currencies_texts AS SELECT
+  Currencies_texts_0.locale,
+  Currencies_texts_0.name,
+  Currencies_texts_0.descr,
+  Currencies_texts_0.code
+FROM sap_common_Currencies_texts AS Currencies_texts_0

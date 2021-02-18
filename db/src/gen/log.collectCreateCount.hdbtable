@@ -1,0 +1,4 @@
+COLUMN TABLE log_collectCreateCount (
+  no_create INTEGER,
+  employee NVARCHAR(5000)
+)

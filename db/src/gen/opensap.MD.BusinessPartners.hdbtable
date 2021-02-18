@@ -1,0 +1,21 @@
+COLUMN TABLE opensap_MD_BusinessPartners (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  partnerRole INTEGER DEFAULT 1,
+  email NVARCHAR(255),
+  phoneNumber NVARCHAR(30),
+  webAddress NVARCHAR(1024),
+  companyName NVARCHAR(80),
+  legalForm NVARCHAR(10),
+  address_ID NVARCHAR(36),
+  currency_code NVARCHAR(3),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN opensap_MD_Addresses AS address ON (address.ID = address_ID),
+  MANY TO ONE JOIN sap_common_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO ONE JOIN opensap_MD_Employees AS createdByEmployee ON (createdByEmployee.email = createdBy),
+  MANY TO ONE JOIN opensap_MD_Employees AS modifiedByEmployee ON (modifiedByEmployee.email = modifiedBy)
+)

@@ -1,0 +1,21 @@
+VIEW POService_BusinessPartners AS SELECT
+  BP_0.ID,
+  BP_0.createdAt,
+  BP_0.createdBy,
+  BP_0.modifiedAt,
+  BP_0.modifiedBy,
+  BP_0.partnerRole,
+  BP_0.email,
+  BP_0.phoneNumber,
+  BP_0.webAddress,
+  BP_0.companyName,
+  BP_0.legalForm,
+  BP_0.address_ID,
+  BP_0.currency_code
+FROM opensap_MD_BusinessPartners AS BP_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN POService_Addresses AS address ON (address.ID = address_ID),
+  MANY TO ONE JOIN POService_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO ONE JOIN POService_Employees AS createdByEmployee ON (createdByEmployee.email = createdBy),
+  MANY TO ONE JOIN POService_Employees AS modifiedByEmployee ON (modifiedByEmployee.email = modifiedBy)
+)

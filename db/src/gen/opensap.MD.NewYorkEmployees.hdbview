@@ -1,0 +1,7 @@
+VIEW opensap_MD_NewYorkEmployees AS SELECT
+  emp_0.nameFirst,
+  emp_0.nameLast,
+  address_1.ID AS ADDID,
+  address_1.city AS CITY
+FROM (opensap_MD_Employees AS emp_0 LEFT JOIN opensap_MD_Addresses AS address_1 ON (emp_0.address_ID = address_1.ID))
+WHERE ('New York' = address_1.city) AND (emp_0.validFrom < SESSION_CONTEXT('VALID-TO') AND emp_0.validTo > SESSION_CONTEXT('VALID-FROM'))

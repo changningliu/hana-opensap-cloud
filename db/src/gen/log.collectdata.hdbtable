@@ -1,0 +1,3 @@
+COLUMN TABLE log_collectdata (
+  val INTEGER
+)

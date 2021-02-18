@@ -1,0 +1,17 @@
+COLUMN TABLE opensap_MD_Addresses (
+  ID NVARCHAR(36) NOT NULL,
+  validFrom TIMESTAMP NOT NULL,
+  validTo TIMESTAMP,
+  city NVARCHAR(40),
+  postalCode NVARCHAR(10),
+  street NVARCHAR(60),
+  building NVARCHAR(10),
+  region NVARCHAR(4),
+  addressType NVARCHAR(2),
+  latitude DOUBLE,
+  longitude DOUBLE,
+  country_code NVARCHAR(3),
+  PRIMARY KEY(ID, validFrom)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_common_Countries AS country ON (country.code = country_code)
+)

@@ -1,0 +1,5 @@
+VIEW iso_us_states AS SELECT
+  Regions_0.sub_code,
+  Regions_0.name
+FROM sap_common_countries_Regions AS Regions_0
+WHERE Regions_0.country = 'US' AND Regions_0.type = 'State'

@@ -1,0 +1,7 @@
+VIEW opensap_MD_BPOrders3View AS SELECT
+  BPView_0.ID,
+  ORDERS_1.ID AS orderId,
+  ORDERS_1.grossAmount AS grossAmt,
+  product_3.productId,
+  item_2.netAmount
+FROM (((opensap_MD_BPView AS BPView_0 LEFT JOIN opensap_PurchaseOrder_Headers AS ORDERS_1 ON ((ORDERS_1.partner_ID = BPView_0.ID) AND (ORDERS_1.lifecycleStatus = 'N'))) LEFT JOIN opensap_PurchaseOrder_Items AS item_2 ON (((item_2.poHeader_ID = ORDERS_1.ID)) AND (item_2.netAmount > 200))) LEFT JOIN opensap_MD_Products AS product_3 ON (item_2.product_productId = product_3.productId))

@@ -1,0 +1,13 @@
+VIEW FLIGHT_SflightExt AS SELECT
+  SflightView_0.Client,
+  SflightView_0.CarrierId,
+  SflightView_0.ConnectionId,
+  SflightView_0.FlightDate,
+  SflightView_0.BookingId,
+  SflightView_0.Price,
+  SflightView_0.Currency,
+  SflightView_0.PlaneType,
+  SflightView_0.CustomerId,
+  SflightView_0.CustomerType,
+  SflightView_0.PassengerName
+FROM FLIGHT_SflightView AS SflightView_0

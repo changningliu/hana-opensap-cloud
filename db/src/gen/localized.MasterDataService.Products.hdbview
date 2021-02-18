@@ -1,0 +1,33 @@
+VIEW localized_MasterDataService_Products AS SELECT
+  Prod_0.createdAt,
+  Prod_0.createdBy,
+  Prod_0.modifiedAt,
+  Prod_0.modifiedBy,
+  Prod_0.quantity,
+  Prod_0.quantityUnit,
+  Prod_0.productId,
+  Prod_0.typeCode,
+  Prod_0.category,
+  Prod_0.name,
+  Prod_0.desc,
+  Prod_0.weightMeasure,
+  Prod_0.weightUnit,
+  Prod_0.price,
+  Prod_0.width,
+  Prod_0.depth,
+  Prod_0.height,
+  Prod_0.dimensionUnit,
+  Prod_0.imageUrl,
+  Prod_0.partner_ID,
+  Prod_0.currency_code,
+  Prod_0.image_product_productId
+FROM localized_opensap_MD_Products AS Prod_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_MasterDataService_BusinessPartners AS partner ON (partner.ID = partner_ID),
+  MANY TO ONE JOIN localized_MasterDataService_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO ONE JOIN localized_MasterDataService_Employees AS createdByEmployee ON (createdByEmployee.email = createdBy),
+  MANY TO ONE JOIN localized_MasterDataService_Employees AS modifiedByEmployee ON (modifiedByEmployee.email = modifiedBy),
+  MANY TO ONE JOIN localized_MasterDataService_ProductImages AS image ON (image.product_productId = image_product_productId),
+  MANY TO MANY JOIN MasterDataService_Products_texts AS texts ON (texts.productId = productId),
+  MANY TO ONE JOIN MasterDataService_Products_texts AS localized ON (localized.productId = productId AND localized.locale = SESSION_CONTEXT('LOCALE'))
+)

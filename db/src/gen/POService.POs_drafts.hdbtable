@@ -1,0 +1,30 @@
+COLUMN TABLE POService_POs_drafts (
+  createdAt TIMESTAMP NULL,
+  createdBy NVARCHAR(255) NULL,
+  modifiedAt TIMESTAMP NULL,
+  modifiedBy NVARCHAR(255) NULL,
+  ID NVARCHAR(36) NOT NULL,
+  grossAmount DECIMAL(15, 2) NULL,
+  netAmount DECIMAL(15, 2) NULL,
+  taxAmount DECIMAL(15, 2) NULL,
+  noteId NVARCHAR(10) NULL,
+  lifecycleStatus NVARCHAR(1) NULL DEFAULT 'N',
+  approvalStatus NVARCHAR(1) NULL,
+  confirmStatus NVARCHAR(1) NULL,
+  orderingStatus NVARCHAR(1) NULL,
+  invoicingStatus NVARCHAR(1) NULL,
+  currency_code NVARCHAR(3) NULL,
+  partner_ID NVARCHAR(36) NULL,
+  IsActiveEntity BOOLEAN,
+  HasActiveEntity BOOLEAN,
+  HasDraftEntity BOOLEAN,
+  DraftAdministrativeData_DraftUUID NVARCHAR(36) NOT NULL,
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN POService_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO MANY JOIN POService_POItems_drafts AS item ON (item.poHeader_ID = ID),
+  MANY TO ONE JOIN POService_BusinessPartners AS partner ON (partner.ID = partner_ID),
+  MANY TO ONE JOIN POService_Employees AS createdByEmployee ON (createdByEmployee.email = createdBy),
+  MANY TO ONE JOIN POService_Employees AS modifiedByEmployee ON (modifiedByEmployee.email = modifiedBy),
+  MANY TO ONE JOIN POService_DraftAdministrativeData AS DraftAdministrativeData ON (DraftAdministrativeData.DraftUUID = DraftAdministrativeData_DraftUUID)
+)

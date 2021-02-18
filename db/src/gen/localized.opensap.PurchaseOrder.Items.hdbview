@@ -1,0 +1,18 @@
+VIEW localized_opensap_PurchaseOrder_Items AS SELECT
+  L_0.ID,
+  L_0.grossAmount,
+  L_0.netAmount,
+  L_0.taxAmount,
+  L_0.quantity,
+  L_0.quantityUnit,
+  L_0.noteId,
+  L_0.deliveryDate,
+  L_0.currency_code,
+  L_0.poHeader_ID,
+  L_0.product_productId
+FROM opensap_PurchaseOrder_Items AS L_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_sap_common_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO ONE JOIN localized_opensap_PurchaseOrder_Headers AS poHeader ON (poHeader.ID = poHeader_ID),
+  MANY TO ONE JOIN localized_opensap_MD_Products AS product ON (product.productId = product_productId)
+)

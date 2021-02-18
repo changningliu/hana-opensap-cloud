@@ -1,0 +1,18 @@
+VIEW MasterDataService_Addresses AS SELECT
+  Addr_0.ID,
+  Addr_0.validFrom,
+  Addr_0.validTo,
+  Addr_0.city,
+  Addr_0.postalCode,
+  Addr_0.street,
+  Addr_0.building,
+  Addr_0.region,
+  Addr_0.addressType,
+  Addr_0.latitude,
+  Addr_0.longitude,
+  Addr_0.country_code
+FROM opensap_MD_Addresses AS Addr_0
+WHERE (Addr_0.validFrom < SESSION_CONTEXT('VALID-TO') AND Addr_0.validTo > SESSION_CONTEXT('VALID-FROM'))
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN MasterDataService_Countries AS country ON (country.code = country_code)
+)

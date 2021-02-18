@@ -1,0 +1,8 @@
+COLUMN TABLE opensap_MD_ProductImages (
+  image BLOB,
+  imageType NVARCHAR(5000),
+  product_productId NVARCHAR(10) NOT NULL,
+  PRIMARY KEY(product_productId)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN opensap_MD_Products AS product ON (product.productId = product_productId)
+)

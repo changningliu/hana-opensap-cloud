@@ -1,0 +1,25 @@
+VIEW POService_POs AS SELECT
+  Headers_0.createdAt,
+  Headers_0.createdBy,
+  Headers_0.modifiedAt,
+  Headers_0.modifiedBy,
+  Headers_0.ID,
+  Headers_0.grossAmount,
+  Headers_0.netAmount,
+  Headers_0.taxAmount,
+  Headers_0.noteId,
+  Headers_0.lifecycleStatus,
+  Headers_0.approvalStatus,
+  Headers_0.confirmStatus,
+  Headers_0.orderingStatus,
+  Headers_0.invoicingStatus,
+  Headers_0.currency_code,
+  Headers_0.partner_ID
+FROM opensap_PurchaseOrder_Headers AS Headers_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN POService_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO MANY JOIN POService_POItems AS item ON (item.poHeader_ID = ID),
+  MANY TO ONE JOIN POService_BusinessPartners AS partner ON (partner.ID = partner_ID),
+  MANY TO ONE JOIN POService_Employees AS createdByEmployee ON (createdByEmployee.email = createdBy),
+  MANY TO ONE JOIN POService_Employees AS modifiedByEmployee ON (modifiedByEmployee.email = modifiedBy)
+)

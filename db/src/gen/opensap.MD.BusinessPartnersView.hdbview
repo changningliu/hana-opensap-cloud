@@ -1,0 +1,7 @@
+VIEW opensap_MD_BusinessPartnersView(IN IM_PR NVARCHAR(1)) AS SELECT
+  BPViewWithDesc_0.ID,
+  BPViewWithDesc_0.partnerRole,
+  BPViewWithDesc_0.PartnerRoleDesc AS email,
+  BPViewWithDesc_0.companyName
+FROM opensap_MD_BPViewWithDesc AS BPViewWithDesc_0
+WHERE BPViewWithDesc_0.partnerRole = :IM_PR

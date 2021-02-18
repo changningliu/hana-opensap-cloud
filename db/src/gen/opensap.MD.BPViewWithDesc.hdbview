@@ -1,0 +1,7 @@
+VIEW opensap_MD_BPViewWithDesc AS SELECT
+  BusinessPartners_0.ID,
+  BusinessPartners_0.partnerRole,
+  CASE WHEN BusinessPartners_0.partnerRole = 1 THEN 'Buyer' WHEN BusinessPartners_0.partnerRole = 2 THEN 'Supplier' END AS PartnerRoleDesc,
+  BusinessPartners_0.email,
+  BusinessPartners_0.companyName
+FROM opensap_MD_BusinessPartners AS BusinessPartners_0

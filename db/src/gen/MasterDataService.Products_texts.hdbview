@@ -1,0 +1,6 @@
+VIEW MasterDataService_Products_texts AS SELECT
+  Products_texts_0.locale,
+  Products_texts_0.productId,
+  Products_texts_0.name,
+  Products_texts_0.desc
+FROM opensap_MD_Products_texts AS Products_texts_0

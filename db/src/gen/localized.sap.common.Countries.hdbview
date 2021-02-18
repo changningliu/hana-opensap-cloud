@@ -1,0 +1,17 @@
+VIEW localized_sap_common_Countries AS SELECT
+  COALESCE(localized_1.name, L_0.name) AS name,
+  COALESCE(localized_1.descr, L_0.descr) AS descr,
+  L_0.code,
+  L_0.code1,
+  L_0.alpha3,
+  L_0.iso,
+  L_0.region,
+  L_0.sub_region,
+  L_0.region_code,
+  L_0.sub_region_code
+FROM (sap_common_Countries AS L_0 LEFT JOIN sap_common_Countries_texts AS localized_1 ON localized_1.code = L_0.code AND localized_1.locale = SESSION_CONTEXT('LOCALE'))
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN localized_sap_common_countries_Regions AS regions ON (regions.country = code),
+  MANY TO MANY JOIN sap_common_Countries_texts AS texts ON (texts.code = code),
+  MANY TO ONE JOIN sap_common_Countries_texts AS localized ON (localized.code = code AND localized.locale = SESSION_CONTEXT('LOCALE'))
+)

@@ -1,0 +1,18 @@
+VIEW POService_POItemsNoDraft AS SELECT
+  Items_0.ID,
+  Items_0.grossAmount,
+  Items_0.netAmount,
+  Items_0.taxAmount,
+  Items_0.quantity,
+  Items_0.quantityUnit,
+  Items_0.noteId,
+  Items_0.deliveryDate,
+  Items_0.currency_code,
+  Items_0.poHeader_ID,
+  Items_0.product_productId
+FROM opensap_PurchaseOrder_Items AS Items_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN POService_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO ONE JOIN POService_POnoDraft AS poHeader ON (poHeader.ID = poHeader_ID),
+  MANY TO ONE JOIN POService_Products AS product ON (product.productId = product_productId)
+)

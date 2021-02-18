@@ -1,0 +1,7 @@
+VIEW iso_countries_regions AS SELECT
+  Regions_0.country AS COUNTRY_CODE,
+  toCountries_1.name AS COUNTRY_NAME,
+  Regions_0.sub_code,
+  Regions_0.name,
+  Regions_0.type
+FROM (sap_common_countries_Regions AS Regions_0 LEFT JOIN sap_common_Countries AS toCountries_1 ON toCountries_1.code = Regions_0.country)

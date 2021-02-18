@@ -1,0 +1,15 @@
+VIEW opensap_PurchaseOrder_PURCHASE_ORDER_ITEM_VIEW AS SELECT
+  poHeader_1.ID AS PO_ITEM_ID,
+  partner_2.ID AS PARTNER_ID,
+  Items_0.currency_code AS CURRENCY_CODE,
+  Items_0.grossAmount AS AMOUNT,
+  Items_0.netAmount AS NET_AMOUNT,
+  Items_0.taxAmount AS TAX_AMOUNT,
+  Items_0.quantity AS QUANTITY,
+  Items_0.quantityUnit AS QUANTITY_UNIT,
+  Items_0.deliveryDate AS DELIVERY_DATE,
+  Items_0.product_productId AS PRODUCT_ID_productId
+FROM ((opensap_PurchaseOrder_Items AS Items_0 LEFT JOIN opensap_PurchaseOrder_Headers AS poHeader_1 ON (Items_0.poHeader_ID = poHeader_1.ID)) LEFT JOIN opensap_MD_BusinessPartners AS partner_2 ON (poHeader_1.partner_ID = partner_2.ID))
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN opensap_MD_Products AS PRODUCT_ID ON (PRODUCT_ID.productId = PRODUCT_ID_productId)
+)

@@ -1,0 +1,19 @@
+VIEW opensap_MD_ProductsConsumption AS SELECT
+  Products_0.productId AS Product_Id,
+  Products_0.category AS Product_Category,
+  Products_0.currency_code AS Product_Currency,
+  Products_0.price AS Product_Price,
+  Products_0.typeCode AS Product_TypeCode,
+  Products_0.weightMeasure AS Product_WeightMeasure,
+  Products_0.weightUnit AS Product_WeightUnit,
+  partner_1.ID AS Supplier_Id,
+  partner_1.companyName AS Supplier_CompanyName,
+  address_2.city AS Supplier_City,
+  address_2.postalCode AS Supplier_PostalCode,
+  address_2.street AS Supplier_Street,
+  address_2.building AS Supplier_Building,
+  address_2.country_code AS Supplier_Country_code
+FROM ((opensap_MD_Products AS Products_0 LEFT JOIN opensap_MD_BusinessPartners AS partner_1 ON (Products_0.partner_ID = partner_1.ID)) LEFT JOIN opensap_MD_Addresses AS address_2 ON (partner_1.address_ID = address_2.ID))
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_common_Countries AS Supplier_Country ON (Supplier_Country.code = Supplier_Country_code)
+)

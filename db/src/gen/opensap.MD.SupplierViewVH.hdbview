@@ -1,0 +1,4 @@
+VIEW opensap_MD_SupplierViewVH AS SELECT
+  SupplierView_0.Id AS Supplier_Id,
+  SupplierView_0.CompanyName AS Supplier_CompanyName
+FROM opensap_MD_SupplierView AS SupplierView_0

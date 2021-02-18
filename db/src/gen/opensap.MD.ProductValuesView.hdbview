@@ -1,0 +1,6 @@
+VIEW opensap_MD_ProductValuesView AS SELECT
+  ProductView_0.Product_Id,
+  PO_ORDERS_1.CurrencyCode AS CurrencyCode,
+  SUM(PO_ORDERS_1.Amount) AS POGrossAmount
+FROM (opensap_MD_ProductView AS ProductView_0 LEFT JOIN opensap_PurchaseOrder_ItemView AS PO_ORDERS_1 ON PO_ORDERS_1.ProductId = ProductView_0.Product_Id)
+GROUP BY ProductView_0.Product_Id, PO_ORDERS_1.CurrencyCode

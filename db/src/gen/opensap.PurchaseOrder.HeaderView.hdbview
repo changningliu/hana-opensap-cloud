@@ -1,0 +1,14 @@
+VIEW opensap_PurchaseOrder_HeaderView AS SELECT
+  Headers_0.ID AS PurchaseOrderId,
+  createdByEmployee_1.ID AS CreatedByEmployeeID,
+  createdByEmployee_1.nameFirst AS CreatedByFirstName,
+  createdByEmployee_1.nameLast AS CreatedByLastName,
+  createdByEmployee_1.loginName AS CreatedByLoginName,
+  Headers_0.createdAt AS CreatedAt,
+  partner_2.ID AS PartnerId,
+  partner_2.companyName AS CompanyName,
+  Headers_0.currency_code AS Currency,
+  Headers_0.grossAmount AS GrossAmount,
+  Headers_0.netAmount AS NetAmount,
+  Headers_0.taxAmount AS TaxAmount
+FROM ((opensap_PurchaseOrder_Headers AS Headers_0 LEFT JOIN opensap_MD_Employees AS createdByEmployee_1 ON createdByEmployee_1.email = Headers_0.createdBy) LEFT JOIN opensap_MD_BusinessPartners AS partner_2 ON (Headers_0.partner_ID = partner_2.ID))

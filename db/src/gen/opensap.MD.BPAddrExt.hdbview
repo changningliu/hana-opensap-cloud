@@ -1,0 +1,4 @@
+VIEW opensap_MD_BPAddrExt AS SELECT
+  BusinessPartners_0.ID,
+  address_1.street || ', ' || address_1.city AS FULLADDRESS
+FROM (opensap_MD_BusinessPartners AS BusinessPartners_0 LEFT JOIN opensap_MD_Addresses AS address_1 ON (BusinessPartners_0.address_ID = address_1.ID))

@@ -1,0 +1,13 @@
+VIEW localized_MasterDataService_Buyer AS SELECT
+  BuyerViewNative_0.Id,
+  BuyerViewNative_0.EmailAddress,
+  BuyerViewNative_0.CompanyName,
+  BuyerViewNative_0.City,
+  BuyerViewNative_0.PostalCode,
+  BuyerViewNative_0.Street,
+  BuyerViewNative_0.Building,
+  BuyerViewNative_0.Country,
+  BuyerViewNative_0.CountryName,
+  BuyerViewNative_0.Region,
+  BuyerViewNative_0.CreatedBy
+FROM localized_opensap_MD_BuyerView AS BuyerViewNative_0

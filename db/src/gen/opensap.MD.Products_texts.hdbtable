@@ -1,0 +1,7 @@
+COLUMN TABLE opensap_MD_Products_texts (
+  locale NVARCHAR(14) NOT NULL,
+  productId NVARCHAR(10) NOT NULL,
+  name NVARCHAR(5000),
+  desc NVARCHAR(5000),
+  PRIMARY KEY(locale, productId)
+)

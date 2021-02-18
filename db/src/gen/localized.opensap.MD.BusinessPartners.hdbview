@@ -1,0 +1,21 @@
+VIEW localized_opensap_MD_BusinessPartners AS SELECT
+  L_0.ID,
+  L_0.createdAt,
+  L_0.createdBy,
+  L_0.modifiedAt,
+  L_0.modifiedBy,
+  L_0.partnerRole,
+  L_0.email,
+  L_0.phoneNumber,
+  L_0.webAddress,
+  L_0.companyName,
+  L_0.legalForm,
+  L_0.address_ID,
+  L_0.currency_code
+FROM opensap_MD_BusinessPartners AS L_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_opensap_MD_Addresses AS address ON (address.ID = address_ID),
+  MANY TO ONE JOIN localized_sap_common_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO ONE JOIN localized_opensap_MD_Employees AS createdByEmployee ON (createdByEmployee.email = createdBy),
+  MANY TO ONE JOIN localized_opensap_MD_Employees AS modifiedByEmployee ON (modifiedByEmployee.email = modifiedBy)
+)

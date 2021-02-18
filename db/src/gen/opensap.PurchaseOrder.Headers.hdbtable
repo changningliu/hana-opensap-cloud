@@ -1,0 +1,25 @@
+COLUMN TABLE opensap_PurchaseOrder_Headers (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  ID NVARCHAR(36) NOT NULL,
+  grossAmount DECIMAL(15, 2),
+  netAmount DECIMAL(15, 2),
+  taxAmount DECIMAL(15, 2),
+  noteId NVARCHAR(10) NULL,
+  lifecycleStatus NVARCHAR(1) DEFAULT 'N',
+  approvalStatus NVARCHAR(1),
+  confirmStatus NVARCHAR(1),
+  orderingStatus NVARCHAR(1),
+  invoicingStatus NVARCHAR(1),
+  currency_code NVARCHAR(3),
+  partner_ID NVARCHAR(36),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_common_Currencies AS currency ON (currency.code = currency_code),
+  MANY TO MANY JOIN opensap_PurchaseOrder_Items AS item ON (item.poHeader_ID = ID),
+  MANY TO ONE JOIN opensap_MD_BusinessPartners AS partner ON (partner.ID = partner_ID),
+  MANY TO ONE JOIN opensap_MD_Employees AS createdByEmployee ON (createdByEmployee.email = createdBy),
+  MANY TO ONE JOIN opensap_MD_Employees AS modifiedByEmployee ON (modifiedByEmployee.email = modifiedBy)
+)
