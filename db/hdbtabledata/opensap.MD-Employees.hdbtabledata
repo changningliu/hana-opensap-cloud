@@ -1,0 +1,61 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "OPENSAP_MD_EMPLOYEES",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "opensap.MD-Employees.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "ID",
+          "NAMEFIRST",
+          "NAMEMIDDLE",
+          "NAMELAST",
+          "NAMEINITIALS",
+          "SEX",
+          "LANGUAGE",
+          "PHONENUMBER",
+          "EMAIL",
+          "LOGINNAME",
+          "ADDRESS_ID",
+          "VALIDFROM",
+          "VALIDTO",
+          "CURRENCY_CODE",
+          "SALARYAMOUNT",
+          "ACCOUNTNUMBER",
+          "BANKID",
+          "BANKNAME",
+          "EMPLOYEEPICURL"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "ID": "ID",
+        "NAMEFIRST": "nameFirst",
+        "NAMEMIDDLE": "nameMiddle",
+        "NAMELAST": "nameLast",
+        "NAMEINITIALS": "nameInitials",
+        "SEX": "sex",
+        "LANGUAGE": "language",
+        "PHONENUMBER": "phoneNumber",
+        "EMAIL": "email",
+        "LOGINNAME": "loginName",
+        "ADDRESS_ID": "address_ID",
+        "VALIDFROM": "validFrom",
+        "VALIDTO": "validTo",
+        "CURRENCY_CODE": "currency_code",
+        "SALARYAMOUNT": "salaryAmount",
+        "ACCOUNTNUMBER": "accountNumber",
+        "BANKID": "bankId",
+        "BANKNAME": "bankName",
+        "EMPLOYEEPICURL": "employeePicUrl"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "SAP_COMMON_COUNTRIES_REGIONS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "sap.common_countries-Regions.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "COUNTRY",
+          "SUB_CODE",
+          "NAME",
+          "TYPE"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "COUNTRY": "country",
+        "SUB_CODE": "sub_code",
+        "NAME": "name",
+        "TYPE": "type"
+      }
+    }
+  ]
+}

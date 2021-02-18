@@ -17,9 +17,9 @@
         "sqlite3": "^5"
     },
     "scripts": {
-        "start": "npm cds run",
-        "env": "cp ./default-env.json ./db/default-env.json && cp ./default-env.json ./srv/default-env.json",
-        "build": "npm cds build/all --clean"
+        "start": "cds run",
+    //    "env": "cp ./default-env.json ./db/default-env.json && cp ./default-env.json ./srv/default-env.json && cp ./db/hdbtabledata/sap.common-Currencies.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/sap.common-Currencies_texts.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/sap.common-Countries.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/sap.common_countries-Regions.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/opensap.MD-Addresses.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/opensap.MD-BusinessPartners.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/opensap.MD-Employees.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/opensap.MD-Products_texts.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/opensap.MD-Products.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/opensap.PurchaseOrder-Headers.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/opensap.PurchaseOrder-Items.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/T006.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/T006A.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/TCURC.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/TCURF.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/TCURN.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/TCURR.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/TCURT.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/TCURV.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/TCURW.hdbtabledata ./db/src/gen/csv/ && cp ./db/hdbtabledata/TCURX.hdbtabledata ./db/src/gen/csv/ ",
+        "build": "cds build/all --clean"
     },
     "cds": {
         "build": {
@@ -32,6 +32,15 @@
                         "model": [
                             "db",
                             "srv"
+                        ]
+                    }
+                },
+                {
+                    "src": "user_db",
+                    "for": "hana",
+                    "options": {
+                        "model": [
+                            "user_db"
                         ]
                     }
                 },

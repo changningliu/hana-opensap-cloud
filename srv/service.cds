@@ -101,4 +101,4 @@ service MasterDataService @(impl : '../srv/handlers/md-service.js')@(path : '/Ma
     };
 
     function loadProductImages() returns Boolean;
-} 
+}

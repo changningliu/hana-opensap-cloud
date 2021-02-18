@@ -4,6 +4,7 @@ using {
   temporal,
   managed
 } from '@sap/cds/common';
+using {opensap.MD} from './masterData';
 
 extend sap.common.Currencies with {
   // Currencies.code = ISO 4217 alphabetic three-letter code
@@ -104,6 +105,10 @@ context opensap.common {
   abstract entity Quantity {
     quantity     : QuantityT;
     quantityUnit : UnitT;
+  }
+
+  abstract entity Addresses {
+    country     : Association to one sap.common.Countries;
   }
 
   type Gender : String(1) enum {
