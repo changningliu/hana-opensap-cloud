@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "SAP_COMMON_CURRENCIES_TEXTS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "sap.common-Currencies_texts.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ";"
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "CODE",
+          "LOCALE",
+          "NAME",
+          "DESCR"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "CODE": "code",
+        "LOCALE": "locale",
+        "NAME": "name",
+        "DESCR": "descr"
+      }
+    }
+  ]
+}

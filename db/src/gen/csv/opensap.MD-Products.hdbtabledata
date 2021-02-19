@@ -1,0 +1,63 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "OPENSAP_MD_PRODUCTS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "opensap.MD-Products.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "PRODUCTID",
+          "TYPECODE",
+          "CATEGORY",
+          "CREATEDBY",
+          "CREATEDAT",
+          "MODIFIEDBY",
+          "MODIFIEDAT",
+          "NAME",
+          "DESC",
+          "PARTNER_ID",
+          "QUANTITY",
+          "QUANTITYUNIT",
+          "WEIGHTMEASURE",
+          "WEIGHTUNIT",
+          "CURRENCY_CODE",
+          "PRICE",
+          "WIDTH",
+          "DEPTH",
+          "HEIGHT",
+          "DIMENSIONUNIT"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "PRODUCTID": "productId",
+        "TYPECODE": "typeCode",
+        "CATEGORY": "category",
+        "CREATEDBY": "createdBy",
+        "CREATEDAT": "createdAt",
+        "MODIFIEDBY": "modifiedBy",
+        "MODIFIEDAT": "modifiedAt",
+        "NAME": "name",
+        "DESC": "desc",
+        "PARTNER_ID": "partner_ID",
+        "QUANTITY": "quantity",
+        "QUANTITYUNIT": "quantityUnit",
+        "WEIGHTMEASURE": "weightMeasure",
+        "WEIGHTUNIT": "weightUnit",
+        "CURRENCY_CODE": "currency_code",
+        "PRICE": "price",
+        "WIDTH": "width",
+        "DEPTH": "depth",
+        "HEIGHT": "height",
+        "DIMENSIONUNIT": "dimensionUnit"
+      }
+    }
+  ]
+}

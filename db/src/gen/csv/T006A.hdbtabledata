@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "T006A",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "T006A.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "MANDT",
+          "SPRAS",
+          "MSEHI",
+          "KZEX3",
+          "KZEX6",
+          "MSEHT",
+          "MSEHL"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+          "MANDT": "MANDT",
+          "SPRAS": "SPRAS",
+          "MSEHI": "MSEHI",
+          "KZEX3": "KZEX3",
+          "KZEX6": "KZEX6",
+          "MSEHT": "MSEHT",
+          "MSEHL": "MSEHL"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "T006",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "T006.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "MANDT",
+          "MSEHI",
+          "KZEX3",
+          "KZEX6",
+          "ANDEC",
+          "KZKEH",
+          "KZWOB",
+          "KZ1EH",
+          "KZ2EH",
+          "DIMID",
+          "ZAEHL",
+          "NENNR",
+          "EXP10",
+          "ADDKO",
+          "EXPON",
+          "DECAN",
+          "ISOCODE",
+          "PRIMARY",
+          "TEMP_VALUE",
+          "TEMP_UNIT",
+          "FAMUNIT",
+          "PRESS_VAL",
+          "PRESS_UNIT"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+          "MANDT": "MANDT",
+          "MSEHI": "MSEHI",
+          "KZEX3": "KZEX3",
+          "KZEX6": "KZEX6",
+          "ANDEC": "ANDEC",
+          "KZKEH": "KZKEH",
+          "KZWOB": "KZWOB",
+          "KZ1EH": "KZ1EH",
+          "KZ2EH": "KZ2EH",
+          "DIMID": "DIMID",
+          "ZAEHL": "ZAEHL",
+          "NENNR": "NENNR",
+          "EXP10": "EXP10",
+          "ADDKO": "ADDKO",
+          "EXPON": "EXPON",
+          "DECAN": "DECAN",
+          "ISOCODE": "ISOCODE",
+          "PRIMARY": "PRIMARY",
+          "TEMP_VALUE": "TEMP_VALUE",
+          "TEMP_UNIT": "TEMP_UNIT",
+          "FAMUNIT": "FAMUNIT",
+          "PRESS_VAL": "PRESS_VAL",
+          "PRESS_UNIT": "PRESS_UNIT"
+      }
+    }
+  ]
+}

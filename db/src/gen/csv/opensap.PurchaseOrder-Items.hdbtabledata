@@ -1,0 +1,45 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "OPENSAP_PURCHASEORDER_ITEMS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "opensap.PurchaseOrder-Items.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "POHEADER_ID",
+          "ID",
+          "PRODUCT_PRODUCTID",
+          "NOTEID",
+          "CURRENCY_CODE",
+          "GROSSAMOUNT",
+          "NETAMOUNT",
+          "TAXAMOUNT",
+          "QUANTITY",
+          "QUANTITYUNIT",
+          "DELIVERYDATE"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+          "POHEADER_ID": "POHeader_ID",
+          "ID": "ID",
+          "PRODUCT_PRODUCTID": "product_productId",
+          "NOTEID": "noteId",
+          "CURRENCY_CODE": "currency_code",
+          "GROSSAMOUNT": "grossAmount",
+          "NETAMOUNT": "netAmount",
+          "TAXAMOUNT": "taxAmount",
+          "QUANTITY": "quantity",
+          "QUANTITYUNIT": "quantityUnit",
+          "DELIVERYDATE": "deliveryDate"
+      }
+    }
+  ]
+}
