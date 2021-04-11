@@ -86,3 +86,10 @@ resources:
      service-name: CROSS_SCHEMA_SFLIGHT
    properties:
      ServiceName_1: '${service-name}'
+     
+# ------------------------------------------------------------
+ - name: CROSS_SCHEMA_SFLIGHT
+# ------------------------------------------------------------ 
+   type: org.cloudfoundry.existing-service
+   parameters:
+     service-name: CROSS_SCHEMA_SFLIGHT 
